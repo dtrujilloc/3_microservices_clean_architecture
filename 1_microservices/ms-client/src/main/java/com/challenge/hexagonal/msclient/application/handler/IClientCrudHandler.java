@@ -16,7 +16,7 @@ public interface IClientCrudHandler {
 
     /**
      * Permite realizar el proceso de creacion un un cliente
-     * @param client Objeto de tipo ClientCreateRequestDto que contiene la informacion a guardar
+     * @param clientRequest Objeto de tipo ClientCreateRequestDto que contiene la informacion a guardar
      * @return Un objeto de tipo ClientResponseDto con la informacion guardada
      */
     ClientResponseDto createClient(ClientCreateRequestDto clientRequest);
@@ -40,11 +40,11 @@ public interface IClientCrudHandler {
      * @param age int que representa la edad de referencia para buscar los clientes
      * @return Una lista de Client que representan los clientes con edad mayores o igual a especificada
      */
-    List<ClientResponseDto> readClientGreaterOrEqualThanAge(int age);
+    List<ClientResponseDto> readAllClientGreaterOrEqualThanAge(int age);
 
     /**
      * Permite realizar el proceso de actualizar la informacion de un cliente
-     * @param client Objeto de tipo ClientUpdateRequestDto con la informacion a actualizar
+     * @param clientRequest Objeto de tipo ClientUpdateRequestDto con la informacion a actualizar
      * @return un objeto de tipo ClientResponseDto con la informacion actualizada
      */
     ClientResponseDto updateClient(ClientUpdateRequestDto clientRequest);

@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Clase que representa la entidad para un cliente dentro del modelo
@@ -30,9 +30,9 @@ public class Client {
 
     private String lastName;
 
-    private int age;
+    private LocalDate birthDate;
 
-    private Date birthDate;
+    private int age;
 
     private String photo;
 }

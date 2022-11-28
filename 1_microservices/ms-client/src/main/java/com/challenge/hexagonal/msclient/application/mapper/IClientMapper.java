@@ -10,11 +10,11 @@ import org.mapstruct.*;
 import java.util.List;
 
 /**
- * Interface que especifica los metodos de mapeo o conversion de la informacion de un cliente
+ * Interface que especifica los metodos de mapeo o conversion de la informacion de un cliente en la capa de aplicacion
  * @author dtrujilloc
  * @version 1.0.0 23/11/2022
  */
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
+@Mapper(componentModel = MappingConstants.ComponentModel.DEFAULT,
         unmappedSourcePolicy = ReportingPolicy.IGNORE,
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface IClientMapper {

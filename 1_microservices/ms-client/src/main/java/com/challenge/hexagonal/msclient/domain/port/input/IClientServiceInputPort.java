@@ -3,7 +3,6 @@ package com.challenge.hexagonal.msclient.domain.port.input;
 import com.challenge.hexagonal.msclient.domain.model.Client;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Inteface que representa el puerto de entrada para su implementacion en la capa de aplicacion(caso de uso) y
@@ -46,7 +45,7 @@ public interface IClientServiceInputPort {
      * @param age int que representa la edad de referencia para buscar los clientes
      * @return Una lista de Client que representan los clientes con edad mayores o igual a especificada
      */
-    List<Client> readClientGreaterOrEqualThanAge(int age);
+    List<Client> readAllClientGreaterOrEqualThanAge(int age);
 
     /**
      * Permite actualizar la informacion de un cliente
@@ -61,10 +60,4 @@ public interface IClientServiceInputPort {
      * @param identificationNumber String que representa el numero de identificacion
      */
     void deleteClientByIdentificationTypeAndIdentificationNumber(String identificationType, String identificationNumber);
-
-    /**
-     * Permite eliminar un cliente por el identificador con el que se persistio
-     * @param id Long que representa el identificador del cliente con el que se persistio
-     */
-    void deleteClientById(Long id);
 }

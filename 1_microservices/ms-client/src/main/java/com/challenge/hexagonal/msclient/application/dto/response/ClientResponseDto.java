@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -32,7 +33,7 @@ public class ClientResponseDto {
 
     private int age;
 
-    private Date birthDate;
+    private LocalDate birthDate;
 
     private String photo;
 }
