@@ -1,12 +1,12 @@
 version: '3.8'
 
 services:
-  app:
-    image: 'app'
+  ms-client:
+    image: 'ms-client'
     build:
       context: ./1_microservices/ms-client/
       dockerfile: Dockerfile
-    container_name: app
+    container_name: ms-client
     restart: always
     depends_on:
       - mysqldb
@@ -18,6 +18,24 @@ services:
     ports:
       - "8090:8090"
 
+  ms-photo:
+    image: 'ms-photo'
+    build:
+      context: ./1_microservices/ms-photo/
+      dockerfile: Dockerfile
+    container_name: ms-photo
+    restart: always
+    depends_on:
+      - mongodb
+    environment:
+      - MONGODB_USERNAME=root
+      - MONGODB_PASSWORD=root
+      - MONGODB_HOST=mongodb
+      - MONGODB_PORT=27017
+      - MONGODB_DATABASE=photodb
+    ports:
+      - "8091:8091"
+
   mysqldb:
     image: 'mysql'
     container_name: mysqldb
@@ -27,3 +45,13 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     ports:
       - "3306:3306"
+  
+  mongodb:
+    image: "mongo"
+    container_name: mongodb
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    ports:
+      - "27017:27017"
