@@ -1,0 +1,15 @@
+server:
+  port: 8091
+
+spring:
+  data:
+    mongodb:
+      username: ${MONGODB_USERNAME:root}
+      password: ${MONGODB_PASSWORD:root}
+      host: ${MONGODB_HOST:localhost}
+      port: ${MONGODB_PORT:27017}
+      database: ${MONGODB_DATABASE:testdb}
+      authentication-database: ${MONGODB_AUTH_DATABASE:admin}
+
+appDescription: "API Photo"
+appVersion: "1.0.0"

@@ -11,4 +11,12 @@ La arquitectura hexagonal se compone de tres capas principales, permitiendo tene
 Tener en cuenta que en esta capa, la aplicacion implementa los puertos de entrada y utiliza los puertos de salida.
 3. Infraestructura: Esta capa contiene principalmente la creacion de los adaptadores, los cuales pueden ser dependientes de algun framework en especifico o de algun tipo de BD segun sea el el caso y tipo de adaptador. Es esta capa los adaptadores principales (entrada) hacen uso del puerto principales y los adaptadores secundarios (salida) implementan los puertos secundarios.
 
-Gracias a esta forma de desarrollo, por medio de la inversion de dependencias y la inyeccion de dependencias, tenes desacoplado el core o negocio de factores externos como las implementaciones detalladas.
+Gracias a esta forma de desarrollo, por medio de la inversion de dependencias y la inyeccion de dependencias, se tiene desacoplado el core o negocio de factores externos como las implementaciones detalladas.
+
+### MICROSERVICIOS
+Para esta practica se crearon dos microservicios con el fin de visualizar la forma en como se pueden trabajar con este tipo de arquitectura y ademas empleando una arquitectura hexagonal en cada uno de ellos.
+
+- MS-CLIENT: el micorservicio de cliente es el principal ya que en este existe todas las funcionalidades de CRUD para la informacion del cliente, incluida la informacion de una imagen en base64. Este microservicio tiene como proposito administrar la informacion base de un cliente haciendo uso de una base de datos MYSQL.
+- MS-PHOTO: el microservicio de foto se creo para la administraicon de la informacion de las fotos haciendo uso de una base de datos NoSQL como lo es MONGODB.
+
+Como se menciono anteriormente, estos dos microservicios se crearon con el proposito de visualizar como es una aplicacion basada en una arquitectura de microservicios. La idea principal es utilizar el ms_client como API, permitiendo enviar toda la informacion de un cliente (nombre, identificacion, fecha de nacimiento, foto en base64), e internamente separar la informacion que es correspondiente a cada uno de los microservicios.
