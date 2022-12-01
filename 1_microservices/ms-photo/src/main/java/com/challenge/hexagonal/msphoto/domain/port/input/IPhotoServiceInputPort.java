@@ -38,7 +38,7 @@ public interface IPhotoServiceInputPort {
      * @param clientId Long que representa el identificador del cliente con el que se persistio
      * @return Un objeto de tipo Photo
      */
-    Photo readPhotoByClientId(Long clientId);
+    Photo readPhotoByClientId(String clientId);
 
     /**
      * Permite actualizar la informacion de una foto
@@ -57,5 +57,5 @@ public interface IPhotoServiceInputPort {
      * Permite eliminar una foto  por el id del cliente con el que se persistio
      * @param clientId Long que representa el identificador de del cliente con el que se persistio
      */
-    void deletePhotoByClientId(Long clientId);
+    void deletePhotoByClientId(String clientId);
 }

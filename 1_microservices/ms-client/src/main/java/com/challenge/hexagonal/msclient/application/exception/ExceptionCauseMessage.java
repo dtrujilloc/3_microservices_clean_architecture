@@ -13,7 +13,8 @@ import lombok.Getter;
 public enum ExceptionCauseMessage {
     CLIENT_NOT_EXIST("the client not exist in bd"),
     CLIENT_NO_DATA_FOUND("the client data not found in bd"),
-    CLIENT_ALREADY_EXIST("the client exist in bd");
+    CLIENT_ALREADY_EXIST("the client exist in bd"),
+    ERROR_HTTP_CLIENT_FEIGN_REQUEST("Error in http client Feing request");
 
     private final String description;
 }

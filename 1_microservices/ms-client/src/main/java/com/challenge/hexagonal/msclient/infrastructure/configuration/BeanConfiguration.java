@@ -5,7 +5,9 @@ import com.challenge.hexagonal.msclient.application.handler.IClientCrudHandler;
 import com.challenge.hexagonal.msclient.application.mapper.IClientMapper;
 import com.challenge.hexagonal.msclient.application.usecase.ClientUseCase;
 import com.challenge.hexagonal.msclient.domain.port.input.IClientServiceInputPort;
-import com.challenge.hexagonal.msclient.domain.port.output.IClientPersistOutputPort;
+import com.challenge.hexagonal.msclient.domain.port.output.httpclient.IPhotoHttpClientOutputPort;
+import com.challenge.hexagonal.msclient.domain.port.output.persist.IClientPersistOutputPort;
+import com.challenge.hexagonal.msclient.infrastructure.adapter.output.httpclient.feign.IPhotoFeignClient;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +23,7 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfiguration {
 
     private final IClientPersistOutputPort clientPersistOutputPort;
+    private final IPhotoHttpClientOutputPort photoHttpClientOutputPort;
 
     /**
      * Permite crear el Bean de IClientMapper para la inyeccion de la implementacion autogenerada por mapStruct
@@ -37,7 +40,7 @@ public class BeanConfiguration {
      */
     @Bean
     public IClientServiceInputPort clientServiceInputPort() {
-        return new ClientUseCase(clientPersistOutputPort);
+        return new ClientUseCase(clientPersistOutputPort, photoHttpClientOutputPort);
     }
 
     /**

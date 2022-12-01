@@ -47,19 +47,4 @@ public class ClientJpaEntity {
 
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
-
-//    @Transient
-//    private int age = Period.between(this.birthDate, LocalDate.now()).getYears();
-
-//    @Column(name = "photo", nullable = false)
-//    private String photo;
-
-    /**
-     * Permite calcular la edad a partir de la fecha de nacimiento
-     * @return un int que representa la fecha de nacimiento.
-     */
-//    @Transient
-//    private int calculateAge() {
-//        return Period.between(this.birthDate, LocalDate.now()).getYears();
-//    }
 }

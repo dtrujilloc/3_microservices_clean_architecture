@@ -18,7 +18,7 @@ public class Photo {
 
     private String id;
 
-    private Long clientId;
+    private String clientId;
 
     // Base64
     private String photo;

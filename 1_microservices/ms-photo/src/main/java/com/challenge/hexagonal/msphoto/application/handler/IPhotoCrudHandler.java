@@ -40,7 +40,7 @@ public interface IPhotoCrudHandler {
      * @param clientId Long que representa el identificador del cliente con el que se persistio
      * @return Un objeto de tipo PhotoResponseDto
      */
-    PhotoResponseDto readPhotoByClientId(Long clientId);
+    PhotoResponseDto readPhotoByClientId(String clientId);
 
     /**
      * Permite realizar el proceso de actualizar la informacion de una foto
@@ -59,5 +59,5 @@ public interface IPhotoCrudHandler {
      * Permite realizar el proceso de eliminar una foto  por el id del cliente con el que se persistio
      * @param clientId Long que representa el identificador de del cliente con el que se persistio
      */
-    void deletePhotoByClientId(Long clientId);
+    void deletePhotoByClientId(String clientId);
 }

@@ -1,4 +1,4 @@
-package com.challenge.hexagonal.msclient.domain.port.output;
+package com.challenge.hexagonal.msclient.domain.port.output.persist;
 
 import com.challenge.hexagonal.msclient.domain.model.Client;
 

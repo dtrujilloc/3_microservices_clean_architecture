@@ -84,7 +84,7 @@ public class PhotoCrudController {
             @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
     })
     @GetMapping("/client/{id}")
-    public ResponseEntity<PhotoResponseDto> readPhotoByClientId(@PathVariable(value = "id") Long clientId) {
+    public ResponseEntity<PhotoResponseDto> readPhotoByClientId(@PathVariable(value = "id") String clientId) {
         log.info("<<< Start controller readPhotoByClientId -> clientId:{}", clientId);
         PhotoResponseDto response = photoCrudHandler.readPhotoByClientId(clientId);
         log.info("<<< End controller readPhotoByClientId -> responseId:{}", response.getId());
@@ -123,7 +123,7 @@ public class PhotoCrudController {
             @ApiResponse(responseCode = "409", description = "photo not exist", content = @Content)
     })
     @DeleteMapping("/client/{id}")
-    public ResponseEntity<Void> deletePhotoByClientId(@PathVariable(value = "id") Long clientId) {
+    public ResponseEntity<Void> deletePhotoByClientId(@PathVariable(value = "id") String clientId) {
         log.info(">>> Start controller deletePhotoByClientId -> clientId:{}", clientId);
         photoCrudHandler.deletePhotoByClientId(clientId);
         log.info("<<< End controller deletePhotoByClientId");

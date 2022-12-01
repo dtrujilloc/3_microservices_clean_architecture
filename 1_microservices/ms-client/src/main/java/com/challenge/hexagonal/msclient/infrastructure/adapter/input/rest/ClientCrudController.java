@@ -39,9 +39,9 @@ public class ClientCrudController {
     })
     @PostMapping
     public ResponseEntity<ClientResponseDto> createClient(@RequestBody ClientCreateRequestDto requestDto) {
-        log.info(">>> Start controller createClient -> request:{}", requestDto);
+        log.info(">>> Start controller createClient -> request -- idType:{} - idNumber:{} - name:{} - lastName{} - birthDate:{}", requestDto.getIdentificationType(), requestDto.getIdentificationNumber(), requestDto.getName(), requestDto.getLastName(), requestDto.getBirthDate());
         ClientResponseDto response= clientCrudHandler.createClient(requestDto);
-        log.info("<<< End controller createClient -> response:{}", response);
+        log.info("<<< End controller createClient -> response -- id:{} - idType:{} - idNumber:{} - name:{} - lastName{} - age:{} - birthDate:{}", response.getId(), response.getIdentificationType(), response.getIdentificationNumber(), response.getName(), response.getLastName(), response.getAge(), response.getBirthDate());
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
@@ -71,7 +71,7 @@ public class ClientCrudController {
                                                                                                    @RequestParam(name = "idNumber") String identificationNumber) {
         log.info(">>> Start controller readClientByIdentificationTypeAndIdentificationNumber -> idType:{} - idNumber:{}", identificationType, identificationNumber);
         ClientResponseDto response = clientCrudHandler.readClientByIdentificationTypeAndIdentificationNumber(identificationType, identificationNumber);
-        log.info("<<< End controller readClientByIdentificationTypeAndIdentificationNumber -> response:{}", response);
+        log.info("<<< End controller readClientByIdentificationTypeAndIdentificationNumber -> response -- id:{} - idType:{} - idNumber:{} - name:{} - lastName{} - age:{} - birthDate:{}", response.getId(), response.getIdentificationType(), response.getIdentificationNumber(), response.getName(), response.getLastName(), response.getAge(), response.getBirthDate());
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
@@ -97,9 +97,9 @@ public class ClientCrudController {
     })
     @PutMapping
     public ResponseEntity<ClientResponseDto> updateClient(@RequestBody ClientUpdateRequestDto requestDto) {
-        log.info(">>> Start controller updateClient -> request:{}", requestDto);
+        log.info(">>> Start controller updateClient -> request -- id:{} - idType:{} - idNumber:{} - name:{} - lastName{} - birthDate:{}", requestDto.getId(), requestDto.getIdentificationType(), requestDto.getIdentificationNumber(), requestDto.getName(), requestDto.getLastName(), requestDto.getBirthDate());
         ClientResponseDto response= clientCrudHandler.updateClient(requestDto);
-        log.info("<<< End controller updateClient -> response:{}", response);
+        log.info("<<< End controller updateClient -> response -- id:{} - idType:{} - idNumber:{} - name:{} - lastName{} - age:{} - birthDate:{}", response.getId(), response.getIdentificationType(), response.getIdentificationNumber(), response.getName(), response.getLastName(), response.getAge(), response.getBirthDate());
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 

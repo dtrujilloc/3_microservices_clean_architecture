@@ -1,7 +1,7 @@
 package com.challenge.hexagonal.msclient.infrastructure.adapter.output.jpa;
 
 import com.challenge.hexagonal.msclient.domain.model.Client;
-import com.challenge.hexagonal.msclient.domain.port.output.IClientPersistOutputPort;
+import com.challenge.hexagonal.msclient.domain.port.output.persist.IClientPersistOutputPort;
 import com.challenge.hexagonal.msclient.infrastructure.adapter.output.jpa.entity.ClientJpaEntity;
 import com.challenge.hexagonal.msclient.infrastructure.adapter.output.jpa.mapper.IClientJpaMapper;
 import com.challenge.hexagonal.msclient.infrastructure.adapter.output.jpa.repository.IClientJpaRepository;
@@ -27,11 +27,11 @@ public class ClientJpaAdapter implements IClientPersistOutputPort {
 
     @Override
     public Client saveClient(Client client) {
-        log.info(">>> Start adapter createClient -> client:{}", client);
+        log.info(">>> Start adapter createClient -> client -- idType:{} - idNumber:{} - name:{} - lastName{} - birthDate:{}", client.getIdentificationType(), client.getIdentificationNumber(), client.getName(), client.getLastName(), client.getBirthDate());
         ClientJpaEntity clientJpaEntity = clientJpaMapper.clientModelToClientJpaEntity(client);
         ClientJpaEntity clientSaved = clientJpaRepository.save(clientJpaEntity);
         Client clientResponse = clientJpaMapper.clientJpaEntityToClientModel(clientSaved);
-        log.info("<<< End adapter createClient -> client:{}", client);
+        log.info("<<< End adapter createClient -> clientSaved:{}", clientResponse);
         return clientResponse;
     }
 
@@ -66,6 +66,6 @@ public class ClientJpaAdapter implements IClientPersistOutputPort {
     public void deleteClientById(Long id) {
         log.info(">>> Start adapter deleteClientById -> id:{}", id);
         clientJpaRepository.deleteById(id);
-        log.info(">>> End adapter deleteClientById -> id:{}", id);
+        log.info("<<< End adapter deleteClientById");
     }
 }

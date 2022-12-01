@@ -5,7 +5,7 @@ import com.challenge.hexagonal.msphoto.application.handler.PhotoCrudHandler;
 import com.challenge.hexagonal.msphoto.application.mapper.IPhotoMapper;
 import com.challenge.hexagonal.msphoto.application.usecase.PhotoUseCase;
 import com.challenge.hexagonal.msphoto.domain.port.input.IPhotoServiceInputPort;
-import com.challenge.hexagonal.msphoto.domain.port.salida.IPhotoPersistOutputPort;
+import com.challenge.hexagonal.msphoto.domain.port.output.IPhotoPersistOutputPort;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.context.annotation.Bean;

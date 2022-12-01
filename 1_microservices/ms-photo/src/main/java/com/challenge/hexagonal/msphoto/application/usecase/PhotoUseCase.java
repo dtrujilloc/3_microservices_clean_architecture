@@ -5,7 +5,7 @@ import com.challenge.hexagonal.msphoto.application.exception.PhotoNoDataFoundExc
 import com.challenge.hexagonal.msphoto.application.exception.PhotoNotExistException;
 import com.challenge.hexagonal.msphoto.domain.model.Photo;
 import com.challenge.hexagonal.msphoto.domain.port.input.IPhotoServiceInputPort;
-import com.challenge.hexagonal.msphoto.domain.port.salida.IPhotoPersistOutputPort;
+import com.challenge.hexagonal.msphoto.domain.port.output.IPhotoPersistOutputPort;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -61,7 +61,7 @@ public class PhotoUseCase implements IPhotoServiceInputPort {
     }
 
     @Override
-    public Photo readPhotoByClientId(Long clientId) {
+    public Photo readPhotoByClientId(String clientId) {
         log.info(">>> Start use case readPhotoByClientId -> clientId:{}", clientId);
         Photo photo = photoPersistOutputPort.getPhotoByClientId(clientId);
         if (photo == null) {
@@ -93,7 +93,7 @@ public class PhotoUseCase implements IPhotoServiceInputPort {
     }
 
     @Override
-    public void deletePhotoByClientId(Long clientId) {
+    public void deletePhotoByClientId(String clientId) {
         log.info(">>> Start use case deletePhotoByClientId -> clientId:{}", clientId);
         Photo photo = readPhotoByClientId(clientId);
         photoPersistOutputPort.deletePhotoById(photo.getId());

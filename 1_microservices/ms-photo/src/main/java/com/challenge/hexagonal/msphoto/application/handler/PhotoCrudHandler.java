@@ -54,7 +54,7 @@ public class PhotoCrudHandler implements IPhotoCrudHandler {
     }
 
     @Override
-    public PhotoResponseDto readPhotoByClientId(Long clientId) {
+    public PhotoResponseDto readPhotoByClientId(String clientId) {
         log.info(">>> Start handler readPhotoByClientId -> clientId:{}", clientId);
         Photo photo = photoServiceInputPort.readPhotoByClientId(clientId);
         PhotoResponseDto photoResponse = photoMapper.photoModelToPhotoResponseDto(photo);
@@ -80,7 +80,7 @@ public class PhotoCrudHandler implements IPhotoCrudHandler {
     }
 
     @Override
-    public void deletePhotoByClientId(Long clientId) {
+    public void deletePhotoByClientId(String clientId) {
         log.info(">>> Start handler deletePhotoByClientId -> clientId:{}", clientId);
         photoServiceInputPort.deletePhotoByClientId(clientId);
         log.info("<<< End handler deletePhotoByClientId");

@@ -1,8 +1,7 @@
 package com.challenge.hexagonal.msphoto.infrastructure.adapter.ouput.mongo;
 
-import com.challenge.hexagonal.msphoto.application.mapper.IPhotoMapper;
 import com.challenge.hexagonal.msphoto.domain.model.Photo;
-import com.challenge.hexagonal.msphoto.domain.port.salida.IPhotoPersistOutputPort;
+import com.challenge.hexagonal.msphoto.domain.port.output.IPhotoPersistOutputPort;
 import com.challenge.hexagonal.msphoto.infrastructure.adapter.ouput.mongo.entity.PhotoMongoEntity;
 import com.challenge.hexagonal.msphoto.infrastructure.adapter.ouput.mongo.mapper.IPhotoMongoMapper;
 import com.challenge.hexagonal.msphoto.infrastructure.adapter.ouput.mongo.repository.IPhotoMongoRepository;
@@ -54,7 +53,7 @@ public class PhotoMongoAdapter implements IPhotoPersistOutputPort {
     }
 
     @Override
-    public Photo getPhotoByClientId(Long clientId) {
+    public Photo getPhotoByClientId(String clientId) {
         log.info(">>> Start adapter getPhotoByClientId -> clientId:{}", clientId);
         PhotoMongoEntity photoMongoEntity = photoMongoRepository.findByClientId(clientId);
         Photo photo = photoMongoMapper.photoMongoEntityToPhotoModel(photoMongoEntity);

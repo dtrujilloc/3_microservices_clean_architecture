@@ -16,6 +16,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PhotoCreateRequestDto {
 
-    private Long clientId;
+    private String clientId;
     private String photoBase64;
 }

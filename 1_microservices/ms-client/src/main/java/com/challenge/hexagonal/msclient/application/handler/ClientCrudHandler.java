@@ -25,11 +25,11 @@ public class ClientCrudHandler implements IClientCrudHandler{
 
     @Override
     public ClientResponseDto createClient(ClientCreateRequestDto clientRequest) {
-        log.info(">>> Start handler createClient -> clientRequest:{}", clientRequest);
+        log.info(">>> Start handler createClient -> clientRequest -- idType:{} - idNumber:{} - name:{} - lastName{} - birthDate:{}", clientRequest.getIdentificationType(), clientRequest.getIdentificationNumber(), clientRequest.getName(), clientRequest.getLastName(), clientRequest.getBirthDate());
         Client client = clientMapper.clientCreateRequestDtoToClientModel(clientRequest);
         Client clientSaved = clientServiceInputPort.createClient(client);
         ClientResponseDto clientResponse = clientMapper.clientModelToClientClientResponseDto(clientSaved);
-        log.info("<<< End handler createClient -> clientResponse:{}", clientResponse);
+        log.info("<<< End handler createClient -> clientResponse -- id:{} - idType:{} - idNumber:{} - name:{} - lastName{} - age:{} - birthDate:{}", clientResponse.getId(), clientResponse.getIdentificationType(), clientResponse.getIdentificationNumber(), clientResponse.getName(), clientResponse.getLastName(), clientResponse.getAge(), clientResponse.getBirthDate());
         return clientResponse;
     }
 
@@ -47,7 +47,7 @@ public class ClientCrudHandler implements IClientCrudHandler{
         log.info(">>> Start handler readClientByIdentificationTypeAndIdentificationNumber -> idType:{} - idNumber:{}", identificationType, identificationNumber);
         Client client = clientServiceInputPort.readClientByIdentificationTypeAndIdentificationNumber(identificationType, identificationNumber);
         ClientResponseDto clientResponse = clientMapper.clientModelToClientClientResponseDto(client);
-        log.info("<<< End handler readClientByIdentificationTypeAndIdentificationNumber -> response:{}", clientResponse);
+        log.info("<<< End handler readClientByIdentificationTypeAndIdentificationNumber -> response -- id:{} - idType:{} - idNumber:{} - name:{} - lastName{} - age:{} - birthDate:{}", clientResponse.getId(), clientResponse.getIdentificationType(), clientResponse.getIdentificationNumber(), clientResponse.getName(), clientResponse.getLastName(), clientResponse.getAge(), clientResponse.getBirthDate());
         return clientResponse;
 
     }
@@ -63,11 +63,11 @@ public class ClientCrudHandler implements IClientCrudHandler{
 
     @Override
     public ClientResponseDto updateClient(ClientUpdateRequestDto clientRequest) {
-        log.info(">>> Start handler updateClient -> clientRequest:{}", clientRequest);
+        log.info(">>> Start handler updateClient -> clientRequest -- id:{} - idType:{} - idNumber:{} - name:{} - lastName{} - birthDate:{}", clientRequest.getId(), clientRequest.getIdentificationType(), clientRequest.getIdentificationNumber(), clientRequest.getName(), clientRequest.getLastName(), clientRequest.getBirthDate());
         Client client = clientMapper.clientUpdateRequestDtoToClientModel(clientRequest);
         Client clientUpdated = clientServiceInputPort.updateClient(client);
         ClientResponseDto clientResponse = clientMapper.clientModelToClientClientResponseDto(clientUpdated);
-        log.info("<<< End handler updateClient -> clientResponse:{}", clientResponse);
+        log.info("<<< End handler updateClient -> clientResponse -- id:{} - idType:{} - idNumber:{} - name:{} - lastName{} - age:{} - birthDate:{}", clientResponse.getId(), clientResponse.getIdentificationType(), clientResponse.getIdentificationNumber(), clientResponse.getName(), clientResponse.getLastName(), clientResponse.getAge(), clientResponse.getBirthDate());
         return clientResponse;
     }
 

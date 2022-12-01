@@ -1,4 +1,4 @@
-package com.challenge.hexagonal.msphoto.domain.port.salida;
+package com.challenge.hexagonal.msphoto.domain.port.output;
 
 import com.challenge.hexagonal.msphoto.domain.model.Photo;
 
@@ -34,10 +34,10 @@ public interface IPhotoPersistOutputPort {
 
     /**
      * Permite leer una foto por el id del cliente con el que se persistio
-     * @param clientId Long que representa el identificador del cliente con el que se persistio
+     * @param clientId String que representa el identificador del cliente con el que se persistio
      * @return Un objeto de tipo Photo
      */
-    Photo getPhotoByClientId(Long clientId);
+    Photo getPhotoByClientId(String clientId);
 
     /**
      * Permite eliminar una foto  por su id con el que se persistio

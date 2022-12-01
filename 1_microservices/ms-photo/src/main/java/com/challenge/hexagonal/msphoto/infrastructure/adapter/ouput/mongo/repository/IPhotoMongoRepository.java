@@ -10,5 +10,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 public interface IPhotoMongoRepository extends MongoRepository<PhotoMongoEntity, String> {
 
-    PhotoMongoEntity findByClientId(Long clientId);
+    PhotoMongoEntity findByClientId(String clientId);
 }

@@ -22,6 +22,6 @@ public class PhotoMongoEntity {
 
     @Id
     private String id;
-    private Long clientId;
+    private String clientId;
     private byte[] photo;
 }
