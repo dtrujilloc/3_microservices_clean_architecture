@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * Clase que representa el DTO de solicitud o peticion para la creacion de los clientes
